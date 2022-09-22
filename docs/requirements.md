@@ -61,5 +61,11 @@ RSS Cargo (RSS Контейнер) - це Windows аплікація для зр
 
 ## Usecase діаграма
 
+PDF варіант [тут](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/usecase_diagram.pdf).
+
 ![Usecase діаграма](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/usecase_diagram.png)
+
+## Макет
+
+PDF варіант [тут](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/wireframe.pdf).
 
