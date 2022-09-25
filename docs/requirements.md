@@ -101,33 +101,58 @@ RSS Cargo (RSS Контейнер) - це Windows аплікація для зр
 
 PDF варіант [тут](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/usecase_diagram.pdf).
 
-![Usecase діаграма](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/usecase_diagram.png)
+<p align="center">
+	<img src="https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/usecase_diagram.png" alt="Usecase діаграма"/>
+</p>
 
 ## Макет
 
 PDF варіант [тут](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/wireframe.pdf).
 
-![1 Design System](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-1.png)
-Design System
+<p align="center">
+	<img src="https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-1.png" alt="1 Design System"/>
+	<br/>
+	Design System
+</p>
 
-![2 Login Page](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-2.png)
-Login Page
+<p align="center">
+	<img src="https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-2.png" alt="2 Login Page"/>
+	<br/>
+	Login Page
+</p>
 
-![3 Registration Page](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-3.png)
-Registration Page
+<p align="center">
+	<img src="https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-3.png" alt="3 Registration Page"/>
+	<br/>
+	Registration Page
+</p>
 
-![4 Main Page](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-4.png)
-Main Page
+<p align="center">
+	<img src="https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-4.png" alt="4 Main Page"/>
+	<br/>
+	Main Page
+</p>
 
-![5 Main Page all with interactive](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-5.png)
-Main Page all with interactive
+<p align="center">
+	<img src="https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-5.png" alt="5 Main Page all with interactive"/>
+	<br/>
+	Main Page all with interactive
+</p>
 
-![6 Cargo Page Followed](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-6.png)
-Cargo Page Followed
+<p align="center">
+	<img src="https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-6.png" alt="6 Cargo Page Followed"/>
+	<br/>
+	Cargo Page Followed
+</p>
 
-![7 Cargo Page New](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-7.png)
-Cargo Page New
+<p align="center">
+	<img src="https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-7.png" alt="7 Cargo Page New"/>
+	<br/>
+	Cargo Page New
+</p>
 
-![8 Article Page](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-8.png)
-Article Page
-
+<p align="center">
+	<img src="https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-8.png" alt="8 Article Page"/>
+	<br/>
+	Article Page
+</p>
