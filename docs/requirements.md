@@ -107,3 +107,27 @@ PDF варіант [тут](https://github.com/lnu-ami-projects/rss-cargo/blob/m
 
 PDF варіант [тут](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/wireframe.pdf).
 
+![1 Design System](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-1.png)
+Design System
+
+![2 Login Page](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-2.png)
+Login Page
+
+![3 Registration Page](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-3.png)
+Registration Page
+
+![4 Main Page](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-4.png)
+Main Page
+
+![5 Main Page all with interactive](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-5.png)
+Main Page all with interactive
+
+![6 Cargo Page Followed](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-6.png)
+Cargo Page Followed
+
+![7 Cargo Page New](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-7.png)
+Cargo Page New
+
+![8 Article Page](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-8.png)
+Article Page
+
