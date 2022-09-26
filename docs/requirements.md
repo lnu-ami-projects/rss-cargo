@@ -83,6 +83,20 @@ RSS Cargo (RSS Контейнер) - це Windows аплікація для зр
 - Будь яка конфіденційна інформація (паролі до бази даних, тощо) повонна бути надійно захищена від користувачів
 - Користувачі повинні мати доступ лише до власних даних, без доступу до даних інших користувачів
 
+### Потенційні засоби для виконання (не кінцевий варінт)
+
+- Основна мова програмування C# на платвормі .NET Framework
+- Користувацький інтерфейст на WPF (Windows Presentation Foundation)
+- Фреймворк роботи з даними - ADO.NET / Entity Framework
+- [?] Юніт тестування основного функціоназу за допомогою XUnit / NUnit
+- Аналіз якості коду за допомогою StyleCop
+- База даних PostgreSQL
+	- Один центральний сервер розташований в інфраструктусі Oracle Cloud
+	- Сервіс PostgreSQL запущений на Docker контейнері
+	- Програма буде робити пряме підключення до бази даних
+- Система контролю версій Git
+	- Хостинг для репозиторію GitHub
+
 ## Usecase діаграма
 
 PDF варіант [тут](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/usecase_diagram.pdf).
@@ -94,6 +108,8 @@ PDF варіант [тут](https://github.com/lnu-ami-projects/rss-cargo/blob/m
 ## Макет
 
 PDF варіант [тут](https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/wireframe.pdf).
+
+Figma [тут](https://www.figma.com/file/d47inqk3U9mjGfVnRGfAud/RSS-Cargo).
 
 <p align="center">
 	<img src="https://github.com/lnu-ami-projects/rss-cargo/blob/main/docs/img/wireframe-1.png" alt="1 Design System"/>
@@ -142,17 +158,3 @@ PDF варіант [тут](https://github.com/lnu-ami-projects/rss-cargo/blob/m
 	<br/>
 	Article Page
 </p>
-
-### Потенційні засоби для виконання (не кінцевий варінт)
-
-- Основна мова програмування C# на платвормі .NET Framework
-- Користувацький інтерфейст на WPF (Windows Presentation Foundation)
-- Фреймворк роботи з даними - ADO.NET / Entity Framework
-- [?] Юніт тестування основного функціоназу за допомогою XUnit / NUnit
-- Аналіз якості коду за допомогою StyleCop
-- База даних PostgreSQL
-	- Один центральний сервер розташований в інфраструктусі Oracle Cloud
-	- Сервіс PostgreSQL запущений на Docker контейнері
-	- Програма буде робити пряме підключення до бази даних
-- Система контролю версій Git
-	- Хостинг для репозиторію GitHub
