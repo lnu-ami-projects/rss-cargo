@@ -6,12 +6,6 @@ namespace ConsoleApp
 {
     public class PrintFunctionality: BaseFunctionality
     {
-        private void ExecuteQuery(string query)
-        {
-            Command = new NpgsqlCommand(query, Connection);
-            Reader = Command.ExecuteReader();
-        }
-        
         public void PrintAllData()
         {
             PrintUsers();
@@ -50,6 +44,13 @@ namespace ConsoleApp
                 }
             }
             table.Write(Format.Alternative);
+            Reader.Close();
+        } 
+        public void PrintUserFeedsSize()
+        {
+            ExecuteQuery("SELECT COUNT(*) FROM user_feeds");
+            Reader.Read();
+            Console.WriteLine($"Size:{Reader[0]}");
             Reader.Close();
         }
         

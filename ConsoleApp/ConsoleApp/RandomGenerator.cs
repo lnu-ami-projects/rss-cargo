@@ -11,7 +11,7 @@ namespace ConsoleApp
 
         public int RandomNumber(int max)
         {
-            return _random.Next(max);
+            return _random.Next(1, max);
         }
         public string RandomString(int maxSize)
         {

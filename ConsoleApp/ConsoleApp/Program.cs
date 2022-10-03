@@ -1,47 +1,55 @@
-﻿namespace ConsoleApp
+﻿using System;
+
+namespace ConsoleApp
 {
     class Program
     {
         static void Main()
         {
-            var inserter = new InsertFunctionality();
-            inserter.TablesInsertion(30);
-            
+            var changer = new ChangeFunctionality();
             var printer = new PrintFunctionality();
-            printer.PrintAllData();
-            
+
+            while (true)
+            {
+                try
+                {   
+                    Console.WriteLine("1. Insert data to all tables");
+                    Console.WriteLine("2. Print data");
+                    Console.WriteLine("3. Delete All Data");
+                    Console.WriteLine("0. Exit");
+                    Console.WriteLine("\n");
+                    
+                    Console.Write("Enter flag:\t");
+                    var flag = Convert.ToInt32(Console.ReadLine());
+                    
+                    switch (flag)
+                    {
+                        case 1:
+                            Console.Write("Enter n:\t");
+                            var n = Convert.ToInt32(Console.ReadLine());
+                            changer.TablesInsertion(n);
+                            Console.WriteLine("Insertion is done successfully\n");
+                            break;
+                        
+                        case 2:
+                            printer.PrintAllData();
+                            break;
+                        
+                        case 3:
+                            changer.TablesDeletion();
+                            Console.WriteLine("Deletion is done successfully\n");
+                            break;
+                        
+                        case 0:
+                            return;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+
+            }
         }
     }
 }
-
-// string sql = "DELETE FROM cargos;"; 
-// NpgsqlCommand command = new NpgsqlCommand(sql, Connection); 
-// command.ExecuteNonQuery();
-// sql = "DELETE FROM users;"; 
-// command = new NpgsqlCommand(sql, Connection); 
-// command.ExecuteNonQuery();
-// sql = "DELETE FROM user_feeds;"; 
-// command = new NpgsqlCommand(sql, Connection); 
-// command.ExecuteNonQuery();
-// sql = "DELETE FROM user_cargos;"; 
-// command = new NpgsqlCommand(sql, Connection); 
-// command.ExecuteNonQuery();
-// sql = "DELETE FROM cargo_feeds;"; 
-// command = new NpgsqlCommand(sql, Connection); 
-// command.ExecuteNonQuery();
-//
-// sql = "ALTER SEQUENCE users_id_seq RESTART WITH 1;"; 
-// command = new NpgsqlCommand(sql, Connection); 
-// command.ExecuteNonQuery();
-// sql = "ALTER SEQUENCE cargos_id_seq RESTART WITH 1;"; 
-// command = new NpgsqlCommand(sql, Connection); 
-// command.ExecuteNonQuery();
-// sql = "ALTER SEQUENCE cargo_feeds_id_seq RESTART WITH 1;"; 
-// command = new NpgsqlCommand(sql, Connection); 
-// command.ExecuteNonQuery();
-// sql = "ALTER SEQUENCE user_feeds_id_seq RESTART WITH 1;"; 
-// command = new NpgsqlCommand(sql, Connection); 
-// command.ExecuteNonQuery();
-// sql = "ALTER SEQUENCE user_cargos_id_seq RESTART WITH 1;"; 
-// command = new NpgsqlCommand(sql, Connection); 
-// command.ExecuteNonQuery();
