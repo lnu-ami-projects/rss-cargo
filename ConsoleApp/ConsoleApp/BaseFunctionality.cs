@@ -49,5 +49,11 @@ namespace ConsoleApp
                 Connection.Close();
             }
         }
+        
+        protected void ExecuteQuery(string query)
+        {
+            Command = new NpgsqlCommand(query, Connection);
+            Reader = Command.ExecuteReader();
+        }
     }
 }
