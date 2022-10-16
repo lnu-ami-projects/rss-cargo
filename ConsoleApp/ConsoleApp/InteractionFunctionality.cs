@@ -1,9 +1,10 @@
 using System;
 using Npgsql;
+using ConsoleTables;
 
 namespace ConsoleApp
 {
-    public class ChangeFunctionality: BaseFunctionality
+    public class InteractionFunctionality: ConnectionFunctionality
     {
         private readonly RandomGenerator _randomGenerator = new();
         private int TableSize(string tableName)
@@ -107,52 +108,64 @@ namespace ConsoleApp
             }
         }
         
-        public void TablesDeletion()
+        public void PrintAllData()
         {
-            UsersDeletion();
-            CargosDeletion();
-            UserFeedsDeletion();
-            UserCargosDeletion();
-            CargoFeedsDeletion();
+            Print("users");
+            Print("cargos");
+            Print("user_feeds");
+            Print("user_cargos");
+            Print("cargo_feeds");
         }
 
-        public void UsersDeletion()
+        public void Print(string tableName)
         {
-            Command = new NpgsqlCommand("DELETE FROM users;", Connection); 
-            Command.ExecuteNonQuery();
-            Command = new NpgsqlCommand("ALTER SEQUENCE users_id_seq RESTART WITH 1;", Connection); 
-            Command.ExecuteNonQuery();
+            ExecuteQuery($"select count(*) from information_schema.columns where table_name='{tableName}';");
+            Reader.Read();
+            var amountColumns = Convert.ToInt32(Reader[0]);
+            Reader.Close();
+
+            ExecuteQuery($"SELECT * FROM {tableName}");
+            Console.WriteLine($"{tableName} table:");
+            var names = new string[amountColumns];
+            for (var i = 0; i < amountColumns; ++i)
+            {
+                names[i] = Reader.GetName(i);
+            }
+            
+            var table = new ConsoleTable();
+            table.AddColumn(names);
+            
+            if (Reader.HasRows)
+            {
+                while (Reader.Read())
+                {
+                    var row = new string[amountColumns];
+                    for (var i = 0; i < amountColumns; ++i)
+                    {
+                        row[i] = Convert.ToString(Reader[i]);
+                    }
+                    table.AddRow(row);
+                }
+            }            
+            table.Write(Format.Alternative);
+
+            Reader.Close();
         }
         
-        public void CargosDeletion()
+        public void TablesDeletion()
         {
-            Command = new NpgsqlCommand("DELETE FROM cargos;", Connection);
-            Command.ExecuteNonQuery();
-            Command = new NpgsqlCommand("ALTER SEQUENCE cargos_id_seq RESTART WITH 1;", Connection); 
-            Command.ExecuteNonQuery();
+            Deletion("users");
+            Deletion("cargos");
+            Deletion("user_feeds");
+            Deletion("user_cargos");
+            Deletion("cargo_feeds");
         }
-        
-        public void UserFeedsDeletion()
+
+        public void Deletion(string tableName)
         {
-            Command = new NpgsqlCommand("DELETE FROM user_feeds;", Connection); 
+            Command = new NpgsqlCommand($"DELETE FROM {tableName};", Connection);
             Command.ExecuteNonQuery();
-            Command = new NpgsqlCommand("ALTER SEQUENCE user_feeds_id_seq RESTART WITH 1;", Connection); 
-            Command.ExecuteNonQuery();
-        }
-        
-        public void UserCargosDeletion()
-        {
-            Command = new NpgsqlCommand("DELETE FROM user_cargos;", Connection);
-            Command.ExecuteNonQuery();
-            Command = new NpgsqlCommand("ALTER SEQUENCE user_cargos_id_seq RESTART WITH 1;", Connection); 
-            Command.ExecuteNonQuery();
-        }
-        
-        public void CargoFeedsDeletion()
-        {
-            Command = new NpgsqlCommand("DELETE FROM cargo_feeds;", Connection);
-            Command.ExecuteNonQuery();
-            Command = new NpgsqlCommand("ALTER SEQUENCE cargo_feeds_id_seq RESTART WITH 1;", Connection); 
+            Command = new NpgsqlCommand($"ALTER SEQUENCE {tableName}_id_seq RESTART WITH 1;", Connection); 
             Command.ExecuteNonQuery();
         }
     }

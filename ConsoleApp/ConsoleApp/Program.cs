@@ -6,8 +6,7 @@ namespace ConsoleApp
     {
         static void Main()
         {
-            var changer = new ChangeFunctionality();
-            var printer = new PrintFunctionality();
+            var interactor = new InteractionFunctionality();
 
             while (true)
             {
@@ -27,16 +26,16 @@ namespace ConsoleApp
                         case 1:
                             Console.Write("Enter n:\t");
                             var n = Convert.ToInt32(Console.ReadLine());
-                            changer.TablesInsertion(n);
+                            interactor.TablesInsertion(n);
                             Console.WriteLine("Insertion is done successfully\n");
                             break;
                         
                         case 2:
-                            printer.PrintAllData();
+                            interactor.PrintAllData();
                             break;
                         
                         case 3:
-                            changer.TablesDeletion();
+                            interactor.TablesDeletion();
                             Console.WriteLine("Deletion is done successfully\n");
                             break;
                         
@@ -48,7 +47,6 @@ namespace ConsoleApp
                 {
                     Console.WriteLine(e.Message);
                 }
-
             }
         }
     }

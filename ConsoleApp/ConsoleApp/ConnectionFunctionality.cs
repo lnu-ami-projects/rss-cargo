@@ -5,13 +5,13 @@ using Npgsql;
 
 namespace ConsoleApp
 {
-    public abstract class BaseFunctionality
+    public abstract class ConnectionFunctionality
     {
         protected NpgsqlConnection Connection { get; set; }
         protected NpgsqlCommand Command { get; set; }
         protected NpgsqlDataReader Reader { get; set; }
 
-        protected BaseFunctionality()
+        protected ConnectionFunctionality()
         {
             var connectionString = ConfigurationManager.ConnectionStrings["MainDataBase"].ToString();
             Connection = new NpgsqlConnection(connectionString);
@@ -20,7 +20,7 @@ namespace ConsoleApp
             Connect();
         }
 
-        ~BaseFunctionality()
+        ~ConnectionFunctionality()
         {
             Disconnect();
         }
