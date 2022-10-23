@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RSS_Cargo
+namespace RSS_Cargo.Presentation
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
