@@ -3,10 +3,188 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RSS_Cargo"
+        xmlns:local="clr-namespace:RSS_Cargo.Presentation"
+        xmlns:viewModel="clr-namespace:RSS_Cargo.Presentation.MVVM.ViewModel"
         mc:Ignorable="d"
-        Title="RSS Cargo" Height="720" Width="1080">
-    <Grid>
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center">Hello World!</Label>
-    </Grid>
+        Title="MainWindow" Height="720" Width="1280"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True" WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+
+    <Border Background="#ECECEC" CornerRadius="20,20,0,0">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="320"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border Background="#FFFFFF" Height="90" VerticalAlignment="Top" Grid.ColumnSpan="2" CornerRadius="20,20,0,0" Margin="0,0,0,0" >
+                <Border.Effect>
+                    <DropShadowEffect Opacity="0.2"/>
+                </Border.Effect>
+            </Border>
+
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal" Margin="40,0,0,0" Height="80" >
+                <Border Background="White" Height="44" Width="554">
+                    <Border.Effect>
+                        <DropShadowEffect Opacity="0.2"/>
+                    </Border.Effect>
+                    <StackPanel Background="#F6F6F6" HorizontalAlignment="Left" Height="44" VerticalAlignment="Center" Width="554" Orientation="Horizontal">
+                        <Button Margin="10,0,0,0" Height="34" Width="37" Background="White" Style="{StaticResource ContentControlButtonTheme}" BorderBrush="#686868">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                            <Image Height="25" Width="28" Source="/Presentation/Images/streamlinehq-interface-search-interface-essential-25.png"/>
+                        </Button>
+                        <TextBox Height="24" TextWrapping="Wrap" Width="450" Margin="25,0,0,0" Padding="5,0,0,0" Style="{StaticResource RSSSearchBox}"/>
+                    </StackPanel>
+                </Border>
+                <Button Background="Transparent" Height="52" Width="52" Margin="20,0,0,0" Style="{StaticResource ContentControlButtonTheme}" BorderBrush="#686868">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                            <Setter Property="BorderThickness" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                    <Image Height="40" Width="40" Source="/Presentation/Images/streamlinehq-interface-add-1-interface-essential-40.png"/>
+                </Button>
+                <Image Height="58" Width="58" Source="/Presentation/Images/streamlinehq-interface-user-square-alternate-interface-essential-55.png" Margin="50,0,0,0"/>
+                <TextBox Height="32" BorderThickness="0" TextWrapping="Wrap" Text="User Name" FontFamily="Times New Roman" FontSize="20" VerticalContentAlignment="Center" Margin="10,0,0,0"/>
+                <Button Height="24" Width="24" Margin="10,0,0,0" Background="Transparent" Style="{StaticResource ContentControlButtonTheme}" BorderBrush="Black">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                    <Image Height="20" Width="20" Source="/Presentation/Images/streamlinehq-interface-arrows-down-circle-2-interface-essential-20.png"/>
+                </Button>
+                <Button x:Name="btnClose"
+                        
+                        BorderThickness="0"
+                        Content="X"
+                        Foreground="Black"
+                        FontSize="12"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Margin="10,0,0,0"
+                        Click="btnClose_Click" Height="57">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#ECECEC"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#dbd9d9"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="30" Height="30"
+                                    CornerRadius="15"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
+            </StackPanel>
+
+            <TextBox Text="📦 RSS Cargo"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Foreground="Black"
+                FontFamily="Times New Roman"
+                FontStyle="Normal"
+                FontSize="24px" BorderBrush="White" IsEnabled="False"/>
+
+            <StackPanel Grid.Row="1">
+                <Border Background="#FFFFFF" Width="290" Height="290" VerticalAlignment="Stretch">
+                    <Border.Effect>
+                        <DropShadowEffect Opacity="0.2" Direction="315"/>
+                    </Border.Effect>
+                    <StackPanel HorizontalAlignment="Center" Height="130" Margin="0,24,0,0" VerticalAlignment="Top" Width="220" RenderTransformOrigin="0.611,0.5">
+                        <TextBlock Height="34" TextWrapping="Wrap" Text="Feeds" Width="220" Margin="0,0,0,0" Padding="24,0,0,0" FontFamily="Lucida Sans" FontSize="20" Foreground="#FF686868" VerticalAlignment="Stretch" IsEnabled="False"/>
+
+                        <RadioButton x:Name="FeedsAllRadioBtn" FontSize="20" FontFamily="Lucida Sans" Foreground="Black" BorderBrush="Transparent" BorderThickness="0" GroupName="MenuButtons" Style="{StaticResource MenuButtonTheme}" IsChecked="True" Command="{Binding HomeViewComand}">
+                            <StackPanel Background="Transparent" x:Name="FeedsAllBtn" Height="34" Width="220" Margin="0,0,0,0" Orientation="Horizontal" MouseLeftButtonDown="FeedsAllBtn_MouseLeftButtonDown" VerticalAlignment="Stretch">
+                                <Image Height="34" Width="28" Source="/Presentation/Images/streamlinehq-interface-text-formatting-justified-align-interface-essential-32.png" HorizontalAlignment="Left" Margin="24,0,0,0"/>
+                                <TextBlock Height="34" Width="148" Text="All" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="20" FontFamily="Lucida Sans" Foreground="Black" Padding="0,5,0,0"/>
+                            </StackPanel>
+                        </RadioButton>
+
+
+                        <RadioButton x:Name="FeedsFollowedRadioBtn" FontSize="20" FontFamily="Lucida Sans" Foreground="Black" BorderBrush="Transparent" BorderThickness="0" GroupName="MenuButtons" Style="{StaticResource MenuButtonTheme}" Command="{Binding FeedsFollowedComand}">
+                            <StackPanel x:Name="FeedsFollowedBtn" Height="34" Width="220" Margin="0,5,0,0" Orientation="Horizontal" PreviewMouseLeftButtonDown="FeedsFollowedBtn_PreviewMouseLeftButtonDown" VerticalAlignment="Stretch">
+                                <Image Height="34" Width="28" Source="/Presentation/Images/32/streamlinehq-interface-arrows-button-right-interface-essential-32.png" HorizontalAlignment="Left" Margin="24,0,0,0"/>
+                                <TextBlock Height="34" Width="148" Text="Followed" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="20" FontFamily="Lucida Sans" Foreground="Black" Padding="0,5,0,0"/>
+                            </StackPanel>
+                        </RadioButton>
+
+
+                    </StackPanel>
+                </Border>
+
+                <Border Background="#FFFFFF" Width="290" Height="290" VerticalAlignment="Stretch" Margin="0,20,0,0">
+                    <Border.Effect>
+                        <DropShadowEffect Opacity="0.2" Direction="315" RenderingBias="Performance"/>
+                    </Border.Effect>
+
+                    <StackPanel HorizontalAlignment="Center" Height="130" Margin="0,24,0,0" VerticalAlignment="Top" Width="220" RenderTransformOrigin="0.611,0.5">
+                        <TextBlock Height="34" TextWrapping="Wrap" Text="Cargos" Width="220" Margin="0,0,0,0" Padding="24,0,0,0" FontFamily="Lucida Sans" FontSize="20" Foreground="#FF686868" VerticalAlignment="Stretch" IsEnabled="False"/>
+
+                        <RadioButton x:Name="CargosFollowNewRadioBtn" FontSize="20" FontFamily="Lucida Sans" Foreground="Black" BorderBrush="Transparent" BorderThickness="0" GroupName="MenuButtons" Style="{StaticResource MenuButtonTheme}" Command="{Binding CargosFollowNewCommand}">
+                            <StackPanel x:Name="CargosAllBtn" Height="34" Width="220" Margin="0,0,0,0" Orientation="Horizontal" MouseLeftButtonDown="CargosAllBtn_MouseLeftButtonDown">
+                                <Image Height="34" Width="28" Source="/Presentation/Images/streamlinehq-interface-add-1-interface-essential-32.png" HorizontalAlignment="Left" Margin="24,0,0,0"/>
+                                <TextBlock Height="34" Width="148" Text="Follow New" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="20" FontFamily="Lucida Sans" Foreground="Black" Padding="0,5,0,0"/>
+                            </StackPanel>
+                        </RadioButton>
+
+
+                        <RadioButton x:Name="CargosFollowedRadioBtn" FontSize="20" FontFamily="Lucida Sans" Foreground="Black" BorderBrush="Transparent" BorderThickness="0" GroupName="MenuButtons" Style="{StaticResource MenuButtonTheme}" Command="{Binding CargosFollowedCommand}">
+                            <StackPanel x:Name="CargosFollowedBtn" Height="34" Width="220" Margin="0,5,0,0" Orientation="Horizontal" MouseLeftButtonDown="CargosFollowedBtn_MouseLeftButtonDown">
+                                <Image Height="34" Width="28" Source="/Presentation/Images/32/streamlinehq-interface-arrows-button-right-interface-essential-32.png" HorizontalAlignment="Left" Margin="24,0,0,0"/>
+                                <TextBlock Height="34" Width="148" Text="Followed" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="20" FontFamily="Lucida Sans" Foreground="Black" Padding="0,5,0,0"/>
+                            </StackPanel>
+                        </RadioButton>
+
+
+                    </StackPanel>
+
+                </Border>
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                <Border Background="white" Width="928" Height="600" Margin="12,0,0,0" HorizontalAlignment="Left">
+                    <Border.Effect>
+                        <DropShadowEffect Opacity="0.2" Direction="315" RenderingBias="Performance"/>
+                    </Border.Effect>
+                </Border>
+            </StackPanel>
+
+            <ContentControl Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="28,10,36,30"
+                            Content="{Binding CurrentView}"/>
+
+        </Grid>
+
+
+
+    </Border>
 </Window>

@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="RSS_Cargo.Presentation.MVVM.View.RSSNewsPageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RSS_Cargo.Presentation.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="580" d:DesignWidth="896" Background="#f6f6f6" ScrollViewer.CanContentScroll="True">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" Height="75" VerticalAlignment="Center" Width="603" Background="#FFF6F6F6"
+                 Text="Title ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus dolor purus non enim praesent elementum facilisis leo, vel" FontFamily="Lucida Sans" FontSize="20" IsEnabled="False"/>
+
+        <StackPanel Grid.Column="1" Margin="30,22,31,10" Orientation="Vertical">
+            <TextBlock TextWrapping="Wrap" Text="Sep 12, 2022" HorizontalAlignment="Right" FontSize="16" FontFamily="Lucida Sans" FontWeight="Medium" MaxWidth="225" Margin="0,0,0,10"/>
+            <TextBlock TextWrapping="Wrap" Text="by Someone" HorizontalAlignment="Right" FontFamily="Lucida Sans" FontSize="16" FontWeight="Medium" MaxWidth="225" Margin="0,0,0,10"/>
+            <TextBlock TextWrapping="Wrap" Text="BBC" HorizontalAlignment="Right" FontSize="16" FontFamily="Lucida Sans" FontWeight="Medium" VerticalAlignment="Bottom"/>
+        </StackPanel>
+
+        <Border Grid.Row="1" Grid.Column="0" Height="1" BorderBrush="Black" BorderThickness="5" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+
+        <TextBlock Background="#F6F6F6" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="34,48,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="830" FontFamily="Lucida Sans" FontSize="16"
+                   Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci, felis, et duis imperdiet adipiscing. In nibh at enim, viverra at ultricies dictum. Massa laoreet eget dictum rhoncus faucibus pellentesque vitae. Amet erat arcu, faucibus amet. Mauris phasellus semper pellentesque cursus arcu suscipit orci. Aliquam duis lacus, dictum bibendum utpat lorem. Commodo, facilisi id m imperdiet consectetur platea scelerisque nulla. Fermentum netus massa lacus enim pharetra purus. Blandit vitae consectetur pulvinar arcu. A nulla malesuada sit non massa sollicitudin augue leo. Id lorem congue mauris pulvinar adipiscing lorem malesuada in mauris. Gravida convallis aliquam amet, ut sociis malesuada quis. Dolor, pellentesque nulla aliquam suspendisse mus. Scelerisque enim, lobortis rhoncus non vel vitae quam. Consectetur fusce morbi ante arcu. Tincidunt eu aliquam et et. Id pellentesque sit molestie dictum vel pulvinar tellus. Dictum nibh convallis magna vel pellentesque ultrices nec elementum. Enim amet, eget amet, at faucibus est. Pulvinar ultrices varius pulvinar vitae aliquam. Ipsum dignissim nulla viverra sed. Dolor eget at enim elementum purus placerat tellus id elementum. Pellentesque pellentesque odio imperdiet justo diam malesuada rhoncus lectus placerat. Facilisi at tempor id non eleifend mi amet bibendum.nvallis magna vel pellentesque ultrices nec elementum. Enim amet, eget amet, at faucibus est. Pulvinar ultrices varius pulvinar vitae aliquam. Ipsum dignissim nulla viverra sed. Dolor eget at enim elementum purus placerat tellus id elementum. Pellentesque pellentesque odio imperdiet justo diam malesuada rhoncus lectus placerat. Facilisi at tempor id non eleifend mi ametnvallis magna vel pellentesque ultrices nec elementum. Enim amet, eget amet, at faucibus est. Pulvinar ultrices varius pulvinar vitae aliquam. Ipsum dignissim nulla viverra sed. Dolor eget at enim elementum purus placerat tellus id elementum. Pellentesque pellentesque odio imperdiet justo diam malesuada rhoncus lectus placerat. Facilisi at tempor id non eleifend mi amet bibendum. bibendum." 
+                   IsEnabled="False"
+                   TextAlignment="Justify"/>
+    </Grid>
+</UserControl>

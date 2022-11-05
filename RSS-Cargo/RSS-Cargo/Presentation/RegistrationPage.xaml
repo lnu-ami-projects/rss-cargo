@@ -1,0 +1,257 @@
+﻿<Window x:Class="RSS_Cargo.Presentation.RegistrationPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RSS_Cargo.Presentation"
+        mc:Ignorable="d"
+        Title="RegistrationPage" Height="700" Width="500"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown"
+        >
+
+    <Border CornerRadius="20"
+            Background="#FFFFFF">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="REGISTRATION"
+                           Foreground="Black"
+                           FontSize="10"
+                           FontFamily="Montserrat"
+                           Grid.Column="0"
+                           VerticalAlignment="Center"
+                           Margin="10,0,0,0"/>
+                <Button x:Name="btnMinimize"                        
+                        BorderThickness="0"
+                        Content="-"
+                        Foreground="Black"
+                        FontSize="16"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Grid.Column="1"
+                        Click="btnMinimize_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#ECECEC"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#dbd9d9"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="30" Height="30"
+                                    CornerRadius="15"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button x:Name="btnClose"
+                        
+                        BorderThickness="0"
+                        Content="X"
+                        Foreground="Black"
+                        FontSize="12"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Grid.Column="2"
+                        Click="btnClose_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#ECECEC"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#dbd9d9"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="30" Height="30"
+                                    CornerRadius="15"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
+            </Grid>
+            <StackPanel Width="400"
+                        Grid.Row="1"
+                        Orientation="Vertical"
+                        Margin="0,20,0,0">
+                <TextBlock Text="📦 RSS Cargo"
+                           Foreground="Black"
+                           FontSize="30"
+                           FontFamily="Ledjer"
+                           HorizontalAlignment="Center"
+                           Margin="0,20,0,0"/>
+                <TextBlock Text="Create account"
+                           Foreground="Black"
+                           FontSize="25"
+                           FontFamily="Ledjer"
+                           HorizontalAlignment="Left"
+                           Margin="0,30,0,0"/>
+                <TextBlock Text="Your name"
+                           Foreground="Black"
+                           FontSize="20"
+                           FontFamily="Ledjer"
+                           HorizontalAlignment="Left"
+                           Margin="0,20,0,0"/>
+                <TextBox x:Name="txtName"
+                         FontSize="20"
+                         FontFamily="Ledjer"
+                         Foreground="Black"
+                         Height="28"
+                         VerticalAlignment="Center"
+                         Margin="0,5,0,0"                         
+                         BorderBrush="Black"
+                         BorderThickness="1"/>
+                <TextBlock Text="Email"
+                           Foreground="Black"
+                           FontSize="20"
+                           FontFamily="Ledjer"
+                           HorizontalAlignment="Left"
+                           Margin="0,20,0,0"/>
+                <TextBox x:Name="txtEmail"
+                         FontSize="20"
+                         FontFamily="Ledjer"
+                         Foreground="Black"
+                         Height="28"
+                         VerticalAlignment="Center"
+                         Margin="0,5,0,0"                         
+                         BorderBrush="Black"
+                         BorderThickness="1"/>
+                <TextBlock Text="Password"
+                           Foreground="Black"
+                           FontSize="20"
+                           FontFamily="Ledjer"
+                           HorizontalAlignment="Left"
+                           Margin="0,20,0,0"/>
+                <PasswordBox x:Name="txtPassword"
+                         FontSize="20"
+                         FontFamily="Ledjer"
+                         Foreground="Black"
+                         Height="28"
+                         VerticalAlignment="Center"
+                         Margin="0,5,0,0"                         
+                         BorderBrush="Black"
+                         BorderThickness="1"/>
+                <TextBlock x:Name="Re_password" 
+                           Text="Re-enter your password"
+                           Foreground="Black"
+                           FontSize="20"
+                           FontFamily="Ledjer"
+                           HorizontalAlignment="Left"
+                           Margin="0,20,0,0"/>
+                <PasswordBox x:Name="txtRePassword"
+                         FontSize="20"
+                         FontFamily="Ledjer"
+                         Foreground="Black"
+                         Height="28"
+                         VerticalAlignment="Center"
+                         Margin="0,5,0,0"                         
+                         BorderBrush="Black"
+                         BorderThickness="1"/>
+                <Button x:Name="btnCreateAccount"                        
+                        BorderThickness="0"
+                        Content="Create your RSS Cargo account"
+                        Foreground="Black"
+                        FontSize="20"
+                        FontFamily="Ledjer"
+                        Cursor="Hand"                        
+                        Click="btnCreateAccount_Click"
+                        Margin="0,50,0,0">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#FFCC7C"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#fcb344"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="400" Height="30"
+                                    CornerRadius="15"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Separator Margin=" 0,30,0,0"  Width="Auto"/>
+                
+                <Button x:Name="btnLoginInAcc"                        
+                        BorderThickness="0"
+                        Content="Already have an account?"
+                        Foreground="Black"
+                        FontSize="20"
+                        FontFamily="Ledjer"
+                        Cursor="Hand"                        
+                        Click="btnLoginInAcc_Click"
+                        Margin="0,30,0,0">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#ECECEC"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#dbd9d9"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="400" Height="30"
+                                    CornerRadius="15"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+
+
+
+
+
+
+
+
+
+
+
+            </StackPanel>
+
+
+        </Grid>
+    </Border>
+</Window>

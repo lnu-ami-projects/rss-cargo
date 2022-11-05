@@ -2,8 +2,37 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:RSS_Cargo"
-             StartupUri="MainWindow.xaml">
+             xmlns:viewModel="clr-namespace:RSS_Cargo.Presentation.MVVM.ViewModel"
+             xmlns:view="clr-namespace:RSS_Cargo.Presentation.MVVM.View"             
+             StartupUri="LoginPage.xaml"> 
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Presentation/Themes/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="/Presentation/Themes/SearchTheme.xaml"/>
+                <ResourceDictionary Source="/Presentation/Themes/ContentControlButtonTheme.xaml"/>
+                <ResourceDictionary Source="/Presentation/Themes/ContentNewsPageTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:RSSHomeViewModel}">
+                <view:RSSHomeView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:RSSFeedsFollowedViewModel}">
+                <view:RSSFeedsFollowedView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:RSSCargosFollowNewViewModel}">
+                <view:RSSCarosFollowNewView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:RSSCargosFollowedViewModel}">
+                <view:RSSSCargosFollowedView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:RSSNewsPageViewModel}">
+                <view:RSSNewsPageView/>
+            </DataTemplate>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
