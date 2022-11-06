@@ -43,9 +43,26 @@ namespace RSS_Cargo.Presentation
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            var login = txtEmail.Text;
+            var pass = txtPassword.Password.ToString();
+
+            var ur = new UserRepository(Program.DB);
+
+            var user = ur.LoginUser(login, pass);
+
+            if (user == null)
+            {
+                loginError.Text = "Login or password does not match!";
+                loginError.Visibility = Visibility.Visible;
+
+                return;
+            }
+            loginError.Visibility = Visibility.Hidden;
+
+            Program.LoggedUser = user;
+            Console.WriteLine($"Logged as user: [{user.Id}] {user.Email}");
+
             MainWindow window_main = new MainWindow();
-            
-            //this.Visibility = Visibility.Hidden;
             window_main.Show();
             this.Close();
         }
@@ -53,7 +70,6 @@ namespace RSS_Cargo.Presentation
         private void btnCreateAccount_Click(object sender, RoutedEventArgs e)
         {
             RegistrationPage window_registration = new RegistrationPage();
-            //this.Visibility = Visibility.Hidden;
             window_registration.Show();
             this.Close();
         }

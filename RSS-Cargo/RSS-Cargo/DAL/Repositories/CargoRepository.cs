@@ -1,5 +1,7 @@
 using RSS_cargo.DAL.Context;
 using RSS_cargo.DAL.Models;
+using System;
+using System.Linq;
 
 namespace RSS_cargo.DAL.Repositories;
 

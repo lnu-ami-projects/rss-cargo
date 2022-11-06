@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RSS_Cargo.Presentation"
         mc:Ignorable="d"
-        Title="LoginPage" Height="600" Width="500"
+        Title="LoginPage" Height="640" Width="500"
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
@@ -143,6 +143,14 @@
                          Margin="0,5,0,0"                         
                          BorderBrush="Black"
                          BorderThickness="1"/>
+                <TextBlock x:Name="loginError"
+                           Text="..."
+                           Foreground="Red"
+                           FontSize="20"
+                           FontFamily="Ledjer"
+                           HorizontalAlignment="Center"
+                           Visibility="Hidden"
+                           Margin="0,20,0,0"/>
                 <Button x:Name="btnLogin"                        
                         BorderThickness="0"
                         Content="Log in"

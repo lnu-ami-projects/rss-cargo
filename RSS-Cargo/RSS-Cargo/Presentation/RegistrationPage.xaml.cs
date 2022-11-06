@@ -45,24 +45,42 @@ namespace RSS_Cargo.Presentation
 
         private void btnCreateAccount_Click(object sender, RoutedEventArgs e)
         {
-            var db = new RsscargoContext();
+            var login = txtEmail.Text;
+            var username = txtName.Text;
+            var pass = txtPassword.Password.ToString();
+            var rePass = txtRePassword.Password.ToString();
 
-            var ur = new UserRepository(db);
-            if (txtPassword.Password == txtRePassword.Password)
+            if (pass != rePass)
             {
-                ur.RegisterUser(txtEmail.Text, txtName.Text, txtPassword.Password);
+                regError.Text = "Confirmation password does not match!";
+                regError.Visibility = Visibility.Visible;
+
+                return;
             }
-            else
+            regError.Visibility = Visibility.Hidden;
+
+            var ur = new UserRepository(Program.DB);
+
+            try
             {
-                txtRePassword.Clear();
-                Re_password.Text = "Re-enter your password (Password was entered incorrectly)";
+                ur.RegisterUser(login, username, pass);
+            } catch (Exception)
+            {
+                regError.Text = "Registration failed!";
+                regError.Visibility = Visibility.Visible;
+
+                return;
             }
+            regError.Visibility = Visibility.Hidden;
+
+            LoginPage loginPage = new LoginPage();
+            loginPage.Show();
+            this.Close();
         }
 
         private void btnLoginInAcc_Click(object sender, RoutedEventArgs e)
         {
             LoginPage window_login = new LoginPage();
-            //this.Visibility = Visibility.Hidden;
             window_login.Show();
             this.Close();
         }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RSS_Cargo.Presentation"
         mc:Ignorable="d"
-        Title="RegistrationPage" Height="700" Width="500"
+        Title="RegistrationPage" Height="740" Width="500"
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
@@ -175,6 +175,14 @@
                          Margin="0,5,0,0"                         
                          BorderBrush="Black"
                          BorderThickness="1"/>
+                <TextBlock x:Name="regError"
+                           Text="..."
+                           Foreground="Red"
+                           FontSize="20"
+                           FontFamily="Ledjer"
+                           HorizontalAlignment="Center"
+                           Visibility="Hidden"
+                           Margin="0,20,0,0"/>
                 <Button x:Name="btnCreateAccount"                        
                         BorderThickness="0"
                         Content="Create your RSS Cargo account"

@@ -14,12 +14,18 @@ namespace RSS_Cargo
 {
     public static class Program
     {
+
+        public static RsscargoContext DB;
+
+        public static User? LoggedUser;
+
+
         [STAThread]
         public static void Main(string[] args)
         {
-            //Console.WriteLine("==== Starting ====");
+            Console.WriteLine("==== Starting ====");
 
-            //var db = new RsscargoContext();
+            DB = new RsscargoContext();
 
             //var ur = new UserRepository(db);
 
@@ -70,7 +76,7 @@ namespace RSS_Cargo
             app.InitializeComponent();
             app.Run();
 
-            //Console.WriteLine("==== Done ====");
+            Console.WriteLine("==== Done ====");
         }
     }
 }
