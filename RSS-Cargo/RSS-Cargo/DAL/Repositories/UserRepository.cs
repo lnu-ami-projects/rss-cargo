@@ -1,8 +1,5 @@
-using Org.BouncyCastle.Crypto.Generators;
 using RSS_cargo.DAL.Context;
 using RSS_cargo.DAL.Models;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace RSS_cargo.DAL.Repositories;
 
@@ -30,24 +27,19 @@ public class UserRepository
 
     public User? LoginUser(string email, string password)
     {
-        var user = _context.Users.First(u => u.Email == email);
+        var user = _context.Users.FirstOrDefault(u => u.Email == email);
 
         if (user == null)
         {
             return null;
         }
 
-        if (!BCrypt.Net.BCrypt.Verify(password, user.Password))
-        {
-            return null;
-        }
-
-        return user;
+        return !BCrypt.Net.BCrypt.Verify(password, user.Password) ? null : user;
     }
 
     public void DeleteUser(int userId)
     {
-        var user = _context.Users.First(u => u.Id == userId);
+        var user = _context.Users.FirstOrDefault(u => u.Id == userId);
 
         if (user == null)
         {
