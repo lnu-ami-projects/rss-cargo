@@ -19,6 +19,7 @@ namespace RSS_Cargo
 
         public static User? LoggedUser;
 
+        public static List<RssFeed>? UserFeeds;
 
         [STAThread]
         public static void Main(string[] args)
@@ -26,51 +27,6 @@ namespace RSS_Cargo
             Console.WriteLine("==== Starting ====");
 
             DB = new RsscargoContext();
-
-            //var ur = new UserRepository(db);
-
-            // ==== TESTING ====
-
-            //try
-            //{
-            //    ur.RegisterUser("a@b.c", "a", "b");
-            //}
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine(e.InnerException?.Message);
-            //}
-
-            //Console.WriteLine("Users: " + db.Users.Count());
-
-            //var loggedUser = ur.LoginUser("a@b.c", "b");
-            //if (loggedUser != null)
-            //{
-            //    Console.WriteLine("Username: " + loggedUser.Username);
-
-            //    //var newFeed = new UserFeed
-            //    //{
-            //    //    RssFeed = "http://rss.cnn.com/rss/edition.rss"
-            //    //};
-            //    //loggedUser.UserFeeds.Add(newFeed);
-            //    //db.SaveChanges();
-
-            //    var loggedUserFeeds = db.UserFeeds.Where(f => f.UserId == loggedUser.Id);
-
-            //    Console.WriteLine("Feeds: " + loggedUserFeeds.Count());
-
-            //    var feeds = loggedUserFeeds.Select(f => new RssFeed(f.RssFeed));
-            //    foreach (var feed in feeds)
-            //    {
-            //        Console.WriteLine(feed.Title);
-
-            //        foreach (var item in feed.Items.Take(3))
-            //        {
-            //            Console.WriteLine("     " + item.Title + " | " + item.PublishDate);
-            //        }
-            //    }
-            //}
-
-            // ==== TESTING ====
 
             var app = new App();
             app.InitializeComponent();

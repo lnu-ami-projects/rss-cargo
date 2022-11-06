@@ -8,14 +8,14 @@
                     <Grid>
                         <TextBox x:Name="SearchBox" BorderThickness="0" Foreground="DarkGray" Background="#F6F6F6" Height="24" TextWrapping="Wrap" Text="{TemplateBinding Text}" Width="452" Margin="25,0,0,0" Padding="5,0,0,0" FontSize="16"/>
                         <TextBlock IsHitTestVisible="False"
-                               Text="Search for new feeds"
-                               FontSize="16" Height="24"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Left"
-                                   Foreground="DarkGray"
-                                   Grid.Column="1"
-                                   Margin="27,0,0,0"
-                                   Padding="5,0,0,0">
+                                Text="Search for new feeds"
+                                FontSize="16" Height="24"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Foreground="DarkGray"
+                                Grid.Column="1"
+                                Margin="27,0,0,0"
+                                Padding="5,0,0,0">
                             
                             <TextBlock.Style>
                                 <Style TargetType="{x:Type TextBlock}">

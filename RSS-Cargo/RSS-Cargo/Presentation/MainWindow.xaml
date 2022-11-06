@@ -12,6 +12,17 @@
         Background="Transparent"
         AllowsTransparency="True" WindowStartupLocation="CenterScreen">
 
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Presentation/Themes/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="/Presentation/Themes/SearchTheme.xaml"/>
+                <ResourceDictionary Source="/Presentation/Themes/ContentControlButtonTheme.xaml"/>
+                <ResourceDictionary Source="/Presentation/Themes/ContentNewsPageTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
@@ -48,10 +59,11 @@
                             </Button.Resources>
                             <Image Height="25" Width="28" Source="/Presentation/Images/streamlinehq-interface-search-interface-essential-25.png"/>
                         </Button>
-                        <TextBox Height="24" TextWrapping="Wrap" Width="450" Margin="25,0,0,0" Padding="5,0,0,0" Style="{StaticResource RSSSearchBox}"/>
+                        <TextBox x:Name="searchBox"  Height="24" TextWrapping="Wrap" Width="450" Margin="25,0,0,0" Padding="5,0,0,0" BorderBrush="#FFABADB3"/>
+                        <!--<TextBox x:Name="searchBox"  Height="24" TextWrapping="Wrap" Width="450" Margin="25,0,0,0" Padding="5,0,0,0" Style="{StaticResource RSSSearchBox}" BorderBrush="#FFABADB3"/>-->
                     </StackPanel>
                 </Border>
-                <Button Background="Transparent" Height="52" Width="52" Margin="20,0,0,0" Style="{StaticResource ContentControlButtonTheme}" BorderBrush="#686868">
+                <Button x:Name="searchAddBtn" Background="Transparent" Height="52" Width="52" Margin="20,0,0,0" Style="{StaticResource ContentControlButtonTheme}" BorderBrush="#686868" Click="searchAddBtn_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
@@ -61,7 +73,7 @@
                     <Image Height="40" Width="40" Source="/Presentation/Images/streamlinehq-interface-add-1-interface-essential-40.png"/>
                 </Button>
                 <Image Height="58" Width="58" Source="/Presentation/Images/streamlinehq-interface-user-square-alternate-interface-essential-55.png" Margin="50,0,0,0"/>
-                <TextBox Height="32" BorderThickness="0" TextWrapping="Wrap" Text="User Name" FontFamily="Times New Roman" FontSize="20" VerticalContentAlignment="Center" Margin="10,0,0,0"/>
+                <TextBox x:Name="usernameBox" Height="32" BorderThickness="0" TextWrapping="Wrap" Text="User Name" FontFamily="Times New Roman" FontSize="20" VerticalContentAlignment="Center" Margin="10,0,0,0"/>
                 <Button Height="24" Width="24" Margin="10,0,0,0" Background="Transparent" Style="{StaticResource ContentControlButtonTheme}" BorderBrush="Black">
                     <Button.Resources>
                         <Style TargetType="Border">
@@ -117,7 +129,7 @@
                     <Border.Effect>
                         <DropShadowEffect Opacity="0.2" Direction="315"/>
                     </Border.Effect>
-                    <StackPanel HorizontalAlignment="Center" Height="130" Margin="0,24,0,0" VerticalAlignment="Top" Width="220" RenderTransformOrigin="0.611,0.5">
+                    <StackPanel HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" Width="220" RenderTransformOrigin="0.611,0.5">
                         <TextBlock Height="34" TextWrapping="Wrap" Text="Feeds" Width="220" Margin="0,0,0,0" Padding="24,0,0,0" FontFamily="Lucida Sans" FontSize="20" Foreground="#FF686868" VerticalAlignment="Stretch" IsEnabled="False"/>
 
                         <RadioButton x:Name="FeedsAllRadioBtn" FontSize="20" FontFamily="Lucida Sans" Foreground="Black" BorderBrush="Transparent" BorderThickness="0" GroupName="MenuButtons" Style="{StaticResource MenuButtonTheme}" IsChecked="True" Command="{Binding HomeViewComand}">
@@ -135,6 +147,8 @@
                             </StackPanel>
                         </RadioButton>
 
+                        <StackPanel x:Name="followedList" Orientation="Vertical" Margin="30,0,0,0">
+                        </StackPanel>
 
                     </StackPanel>
                 </Border>
@@ -162,6 +176,8 @@
                             </StackPanel>
                         </RadioButton>
 
+                        <StackPanel x:Name="cargosList" Orientation="Vertical" Margin="30,0,0,0">
+                        </StackPanel>
 
                     </StackPanel>
 
