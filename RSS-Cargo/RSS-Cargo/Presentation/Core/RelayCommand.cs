@@ -1,37 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿// <copyright file="RelayCommand.cs" company="RSSCargo">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace RSS_Cargo.Presentation.Core
 {
-    public class RelayCommand: ICommand
-    {
-        private Action<object> _execute;
-        private Func<object, bool> _canExecute;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows.Input;
 
-        public event EventHandler CanExecuteChanged
+    public class RelayCommand : ICommand
+    {
+        private Action<object> execute;
+        private Func<object, bool>? canExecute;
+
+        public RelayCommand(Action<object> execute, Func<object, bool>? canExecute = null)
+        {
+            this.execute = execute;
+            this.canExecute = canExecute;
+        }
+
+        public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public RelayCommand(Action<object> execute, Func<object, bool> canExecute=null)
+        public bool CanExecute(object? parameter)
         {
-            _execute = execute;
-            _canExecute = canExecute;
+            return this.canExecute == null || this.canExecute(parameter!);
         }
 
-        public bool CanExecute(object parameter)
+        public void Execute(object? parameter)
         {
-            return _canExecute == null || _canExecute(parameter);
-        }
-
-        public void Execute(object parameter)
-        {
-            _execute(parameter);
+            this.execute(parameter!);
         }
     }
 }

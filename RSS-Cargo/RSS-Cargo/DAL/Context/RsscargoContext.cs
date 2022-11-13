@@ -1,8 +1,12 @@
-﻿using System.Configuration;
-using Microsoft.EntityFrameworkCore;
-using RSS_cargo.DAL.Models;
+﻿// <copyright file="RsscargoContext.cs" company="RSSCargo">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace RSS_cargo.DAL.Context;
+
+using System.Configuration;
+using Microsoft.EntityFrameworkCore;
+using RSS_cargo.DAL.Models;
 
 public class RsscargoContext : DbContext
 {

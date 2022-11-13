@@ -1,9 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// <copyright file="User.cs" company="RSSCargo">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace RSS_cargo.DAL.Models;
 
-public partial class User
+using System;
+using System.Collections.Generic;
+
+public class User
 {
     public int Id { get; set; }
 

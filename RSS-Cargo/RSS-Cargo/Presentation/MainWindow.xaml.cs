@@ -1,30 +1,34 @@
-﻿using RSS_cargo.DAL.Repositories;
-using RSS_Cargo.BLL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿// <copyright file="MainWindow.xaml.cs" company="RSSCargo">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace RSS_Cargo.Presentation
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Data;
+    using System.Windows.Documents;
+    using System.Windows.Input;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
+    using System.Windows.Navigation;
+    using System.Windows.Shapes;
+    using RSS_Cargo.BLL;
+    using RSS_cargo.DAL.Repositories;
+
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainWindow.xaml.
     /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
-            InitializeComponent();
+            this.InitializeComponent();
 
             Program.Log.Info("Init main window");
 
@@ -37,9 +41,9 @@ namespace RSS_Cargo.Presentation
                 return;
             }
 
-            usernameBox.Text = Program.LoggedUser.Username;
+            this.usernameBox.Text = Program.LoggedUser.Username;
 
-            var userFeeds = Program.DB.UserFeeds.Where(f => f.UserId == Program.LoggedUser.Id);
+            var userFeeds = Program.DB!.UserFeeds.Where(f => f.UserId == Program.LoggedUser.Id);
 
             Program.Log.Info("Loading user feeds");
 
@@ -54,7 +58,7 @@ namespace RSS_Cargo.Presentation
                 tb.FontSize = 16;
                 tb.TextTrimming = TextTrimming.CharacterEllipsis;
 
-                followedList.Children.Add(tb);
+                this.followedList.Children.Add(tb);
             });
 
             Program.Log.Info("User feeds loaded");
@@ -62,55 +66,54 @@ namespace RSS_Cargo.Presentation
 
         private void FeedsAllBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            
         }
 
         private void FeedsFollowedBtn_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            
         }
 
         private void CargosAllBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            
         }
 
         private void CargosFollowedBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            
         }
 
-        private void btnClose_Click(object sender, RoutedEventArgs e)
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
-        private void searchAddBtn_Click(object sender, RoutedEventArgs e)
+        private void SearchAddBtn_Click(object sender, RoutedEventArgs e)
         {
-            var feed = searchBox.Text;
+            var feed = this.searchBox.Text;
 
             Console.WriteLine($"Trying to add feed: {feed}");
 
-            if (feed == "")
+            if (feed == string.Empty)
             {
-                searchBox.BorderBrush = new SolidColorBrush(Colors.Red);
+                this.searchBox.BorderBrush = new SolidColorBrush(Colors.Red);
                 return;
             }
-            searchBox.BorderBrush = new SolidColorBrush(Colors.Transparent);
+
+            this.searchBox.BorderBrush = new SolidColorBrush(Colors.Transparent);
 
             RssFeed newFeed;
             try
             {
                 newFeed = new RssFeed(feed);
                 Program.UserFeeds!.Add(newFeed);
-            } catch (Exception)
+            }
+            catch (Exception)
             {
-                searchBox.BorderBrush = new SolidColorBrush(Colors.Red);
+                this.searchBox.BorderBrush = new SolidColorBrush(Colors.Red);
                 return;
             }
-            searchBox.BorderBrush = new SolidColorBrush(Colors.Transparent);
 
-            var ur = new UserRepository(Program.DB);
+            this.searchBox.BorderBrush = new SolidColorBrush(Colors.Transparent);
+
+            var ur = new UserRepository(Program.DB!);
 
             try
             {
@@ -118,18 +121,19 @@ namespace RSS_Cargo.Presentation
             }
             catch (Exception)
             {
-                searchBox.BorderBrush = new SolidColorBrush(Colors.Red);
+                this.searchBox.BorderBrush = new SolidColorBrush(Colors.Red);
                 return;
             }
-            searchBox.BorderBrush = new SolidColorBrush(Colors.Transparent);
-            searchBox.Text = "";
+
+            this.searchBox.BorderBrush = new SolidColorBrush(Colors.Transparent);
+            this.searchBox.Text = string.Empty;
 
             var tb = new TextBlock();
             tb.Text = newFeed.Title;
             tb.FontSize = 16;
             tb.TextTrimming = TextTrimming.CharacterEllipsis;
 
-            followedList.Children.Add(tb);
+            this.followedList.Children.Add(tb);
 
             Console.WriteLine($"Added feed: {feed}");
         }

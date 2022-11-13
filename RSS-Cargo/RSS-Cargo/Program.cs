@@ -1,25 +1,30 @@
-﻿using RSS_cargo.DAL.Context;
-using RSS_cargo.DAL.Models;
-using RSS_Cargo.BLL;
-using System;
-using System.Collections.Generic;
-using System.Reflection;
-using log4net;
-using log4net.Config;
-using System.IO;
+﻿// <copyright file="Program.cs" company="RSSCargo">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace RSS_Cargo
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Reflection;
+    using log4net;
+    using RSS_Cargo.BLL;
+    using RSS_cargo.DAL.Context;
+    using RSS_cargo.DAL.Models;
+
     public static class Program
     {
+        private static User? loggedUser;
 
-        public static RsscargoContext DB;
+        private static List<RssFeed>? userFeeds;
 
-        public static User? LoggedUser;
+        public static RsscargoContext? DB { get; set; }
 
-        public static List<RssFeed>? UserFeeds;
+        public static User? LoggedUser { get => loggedUser; set => loggedUser = value; }
 
-        public static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+        public static List<RssFeed>? UserFeeds { get => userFeeds; set => userFeeds = value; }
+
+        public static ILog Log { get; } = LogManager.GetLogger(type: MethodBase.GetCurrentMethod()!.DeclaringType);
 
         [STAThread]
         public static void Main(string[] args)

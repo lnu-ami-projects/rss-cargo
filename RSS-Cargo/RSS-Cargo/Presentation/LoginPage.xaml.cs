@@ -1,65 +1,73 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using RSS_cargo.DAL.Context;
-using RSS_cargo.DAL.Repositories;
+﻿// <copyright file="LoginPage.xaml.cs" company="RSSCargo">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
 namespace RSS_Cargo.Presentation
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Data;
+    using System.Windows.Documents;
+    using System.Windows.Input;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
+    using System.Windows.Shapes;
+    using RSS_cargo.DAL.Context;
+    using RSS_cargo.DAL.Repositories;
+
     /// <summary>
-    /// Interaction logic for LoginPage.xaml
+    /// Interaction logic for LoginPage.xaml.
     /// </summary>
     public partial class LoginPage : Window
     {
         public LoginPage()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
-                DragMove();
+            {
+                this.DragMove();
+            }
         }
 
-        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        private void BtnMinimize_Click(object sender, RoutedEventArgs e)
         {
-            WindowState=WindowState.Minimized;
+            this.WindowState = WindowState.Minimized;
         }
 
-        private void btnClose_Click(object sender, RoutedEventArgs e)
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            var login = txtEmail.Text;
-            var pass = txtPassword.Password.ToString();
+            var login = this.txtEmail.Text;
+            var pass = this.txtPassword.Password.ToString();
 
-            var ur = new UserRepository(Program.DB);
+            var ur = new UserRepository(Program.DB!);
 
             var user = ur.LoginUser(login, pass);
 
             if (user == null)
             {
-                loginError.Text = "Login or password does not match!";
-                loginError.Visibility = Visibility.Visible;
+                this.loginError.Text = "Login or password does not match!";
+                this.loginError.Visibility = Visibility.Visible;
 
                 Program.Log.Error($"Login for user {login} failed");
 
                 return;
             }
-            loginError.Visibility = Visibility.Hidden;
+
+            this.loginError.Visibility = Visibility.Hidden;
 
             Program.LoggedUser = user;
             Console.WriteLine($"Logged as user: [{user.Id}] {user.Email}");
@@ -71,7 +79,7 @@ namespace RSS_Cargo.Presentation
             this.Close();
         }
 
-        private void btnCreateAccount_Click(object sender, RoutedEventArgs e)
+        private void BtnCreateAccount_Click(object sender, RoutedEventArgs e)
         {
             RegistrationPage window_registration = new RegistrationPage();
             window_registration.Show();

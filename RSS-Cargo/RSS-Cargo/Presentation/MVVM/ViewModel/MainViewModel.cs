@@ -1,72 +1,88 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RSS_Cargo.Presentation.Core;
+﻿// <copyright file="MainViewModel.cs" company="RSSCargo">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace RSS_Cargo.Presentation.MVVM.ViewModel
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using RSS_Cargo.Presentation.Core;
+
     public class MainViewModel : Core.Observable
     {
-        public Core.RelayCommand HomeViewComand { get; set; }
-        public Core.RelayCommand FeedsFollowedComand { get; set; }
-        public Core.RelayCommand CargosFollowNewCommand { get; set; }
-        public Core.RelayCommand CargosFollowedCommand { get; set; }
-        public Core.RelayCommand NewsPageCommand { get; set; }
-
-        public RSSHomeViewModel HomeVM { get; set; }
-        public RSSFeedsFollowedViewModel FeedsFollowedVM { get; set; }
-        public RSSCargosFollowNewViewModel CargosFollowNewVM { get; set; }
-        public RSSCargosFollowedViewModel CargosFollowedVM { get; set; }
-        public RSSNewsPageViewModel NewsPageVM { get; set; }
-
-        private object _currentView;
-
-        public object CurrentView
-        {
-            get { return _currentView; }
-            set 
-            { 
-                _currentView = value; 
-                OnPropertyChanged();
-            }
-        }
+        private object? currentView;
 
         public MainViewModel()
         {
-            HomeVM = new RSSHomeViewModel();
-            FeedsFollowedVM = new RSSFeedsFollowedViewModel();
-            CargosFollowNewVM = new RSSCargosFollowNewViewModel();
-            CargosFollowedVM = new RSSCargosFollowedViewModel();
-            NewsPageVM = new RSSNewsPageViewModel();
+            this.HomeVM = new RSSHomeViewModel();
+            this.FeedsFollowedVM = new RSSFeedsFollowedViewModel();
+            this.CargosFollowNewVM = new RSSCargosFollowNewViewModel();
+            this.CargosFollowedVM = new RSSCargosFollowedViewModel();
+            this.NewsPageVM = new RSSNewsPageViewModel();
 
-            CurrentView = HomeVM;
+            this.CurrentView = this.HomeVM;
 
-            HomeViewComand = new RelayCommand(o =>
+            this.HomeViewComand = new RelayCommand(o =>
             {
-                CurrentView = HomeVM;
+                this.CurrentView = this.HomeVM;
             });
 
-            FeedsFollowedComand = new RelayCommand(o =>
+            this.FeedsFollowedComand = new RelayCommand(o =>
             {
-                CurrentView = FeedsFollowedVM;
+                this.CurrentView = this.FeedsFollowedVM;
             });
 
-            CargosFollowNewCommand = new RelayCommand(o =>
+            this.CargosFollowNewCommand = new RelayCommand(o =>
             {
-                CurrentView = CargosFollowNewVM;
+                this.CurrentView = this.CargosFollowNewVM;
             });
 
-            CargosFollowedCommand = new RelayCommand(o =>
+            this.CargosFollowedCommand = new RelayCommand(o =>
             {
-                CurrentView = CargosFollowedVM;
+                this.CurrentView = this.CargosFollowedVM;
             });
 
-            NewsPageCommand = new RelayCommand(o =>
+            this.NewsPageCommand = new RelayCommand(o =>
             {
-                CurrentView = NewsPageVM;
+                this.CurrentView = this.NewsPageVM;
             });
+        }
+
+        public Core.RelayCommand HomeViewComand { get; set; }
+
+        public Core.RelayCommand FeedsFollowedComand { get; set; }
+
+        public Core.RelayCommand CargosFollowNewCommand { get; set; }
+
+        public Core.RelayCommand CargosFollowedCommand { get; set; }
+
+        public Core.RelayCommand NewsPageCommand { get; set; }
+
+        public RSSHomeViewModel HomeVM { get; set; }
+
+        public RSSFeedsFollowedViewModel FeedsFollowedVM { get; set; }
+
+        public RSSCargosFollowNewViewModel CargosFollowNewVM { get; set; }
+
+        public RSSCargosFollowedViewModel CargosFollowedVM { get; set; }
+
+        public RSSNewsPageViewModel NewsPageVM { get; set; }
+
+        public object CurrentView
+        {
+            get
+            {
+                return this.currentView!;
+            }
+
+            set
+            {
+                this.currentView = value;
+                this.OnPropertyChanged();
+            }
         }
     }
 }

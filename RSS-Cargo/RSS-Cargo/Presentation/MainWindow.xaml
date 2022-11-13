@@ -63,7 +63,7 @@
                         <!--<TextBox x:Name="searchBox"  Height="24" TextWrapping="Wrap" Width="450" Margin="25,0,0,0" Padding="5,0,0,0" Style="{StaticResource RSSSearchBox}" BorderBrush="#FFABADB3"/>-->
                     </StackPanel>
                 </Border>
-                <Button x:Name="searchAddBtn" Background="Transparent" Height="52" Width="52" Margin="20,0,0,0" Style="{StaticResource ContentControlButtonTheme}" BorderBrush="#686868" Click="searchAddBtn_Click">
+                <Button x:Name="searchAddBtn" Background="Transparent" Height="52" Width="52" Margin="20,0,0,0" Style="{StaticResource ContentControlButtonTheme}" BorderBrush="#686868" Click="SearchAddBtn_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
@@ -91,7 +91,7 @@
                         FontFamily="Montserrat"
                         Cursor="Hand"
                         Margin="10,0,0,0"
-                        Click="btnClose_Click" Height="57">
+                        Click="BtnClose_Click" Height="57">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="#ECECEC"/>
