@@ -1,5 +1,6 @@
 using RSS_cargo.DAL.Context;
 using RSS_cargo.DAL.Models;
+using RSS_Cargo;
 using System;
 using System.Linq;
 
@@ -23,12 +24,16 @@ public class UserRepository
             Password = BCrypt.Net.BCrypt.HashPassword(password)
         };
 
+        Program.Log.Info($"Registering user {email}");
+
         _context.Users.Add(user);
         _context.SaveChanges();
     }
 
     public User? LoginUser(string email, string password)
     {
+        Program.Log.Info($"Login user {email}");
+
         var user = _context.Users.FirstOrDefault(u => u.Email == email);
 
         if (user == null)
@@ -41,6 +46,8 @@ public class UserRepository
 
     public void DeleteUser(int userId)
     {
+        Program.Log.Info($"Delete user {userId}");
+
         var user = _context.Users.FirstOrDefault(u => u.Id == userId);
 
         if (user == null)

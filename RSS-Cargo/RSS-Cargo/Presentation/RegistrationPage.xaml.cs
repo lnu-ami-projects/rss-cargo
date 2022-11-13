@@ -55,6 +55,8 @@ namespace RSS_Cargo.Presentation
                 regError.Text = "Confirmation password does not match!";
                 regError.Visibility = Visibility.Visible;
 
+                Program.Log.Error($"Registration failed: confirmation password does not match");
+
                 return;
             }
             regError.Visibility = Visibility.Hidden;
@@ -69,9 +71,13 @@ namespace RSS_Cargo.Presentation
                 regError.Text = "Registration failed!";
                 regError.Visibility = Visibility.Visible;
 
+                Program.Log.Error($"Registration failed: database error");
+
                 return;
             }
             regError.Visibility = Visibility.Hidden;
+
+            Program.Log.Info($"registred user: {login}");
 
             LoginPage loginPage = new LoginPage();
             loginPage.Show();

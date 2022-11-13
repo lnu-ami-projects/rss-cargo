@@ -16,6 +16,8 @@ namespace RSS_Cargo.BLL
 
         public RssFeed(string url)
         {
+            Program.Log.Info($"Reading RSS Feed: {url}");
+
             using var reader = XmlReader.Create(url);
             var feed = SyndicationFeed.Load(reader);
 
@@ -25,6 +27,8 @@ namespace RSS_Cargo.BLL
             Authors = SyndicationGetter.GetValueOrEmpty(feed.Authors);
 
             Items = feed.Items.Select(i => new RssFeedItem(i)).ToArray();
+
+            Program.Log.Info($"For RSS Feed: {url}, found {Items.Length} items");
         }
     }
 

@@ -55,12 +55,16 @@ namespace RSS_Cargo.Presentation
                 loginError.Text = "Login or password does not match!";
                 loginError.Visibility = Visibility.Visible;
 
+                Program.Log.Error($"Login for user {login} failed");
+
                 return;
             }
             loginError.Visibility = Visibility.Hidden;
 
             Program.LoggedUser = user;
             Console.WriteLine($"Logged as user: [{user.Id}] {user.Email}");
+
+            Program.Log.Info($"Login as user {login} successful");
 
             MainWindow window_main = new MainWindow();
             window_main.Show();

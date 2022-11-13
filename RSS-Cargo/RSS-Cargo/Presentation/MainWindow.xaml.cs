@@ -26,6 +26,8 @@ namespace RSS_Cargo.Presentation
         {
             InitializeComponent();
 
+            Program.Log.Info("Init main window");
+
             if (Program.LoggedUser == null)
             {
                 LoginPage loginPage = new LoginPage();
@@ -38,6 +40,8 @@ namespace RSS_Cargo.Presentation
             usernameBox.Text = Program.LoggedUser.Username;
 
             var userFeeds = Program.DB.UserFeeds.Where(f => f.UserId == Program.LoggedUser.Id);
+
+            Program.Log.Info("Loading user feeds");
 
             Program.UserFeeds = userFeeds.Select(f => new RssFeed(f.RssFeed)).ToList();
 
@@ -52,6 +56,8 @@ namespace RSS_Cargo.Presentation
 
                 followedList.Children.Add(tb);
             });
+
+            Program.Log.Info("User feeds loaded");
         }
 
         private void FeedsAllBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
