@@ -5,19 +5,8 @@
 namespace RSS_Cargo.Presentation
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows;
-    using System.Windows.Controls;
-    using System.Windows.Data;
-    using System.Windows.Documents;
     using System.Windows.Input;
-    using System.Windows.Media;
-    using System.Windows.Media.Imaging;
-    using System.Windows.Shapes;
-    using RSS_cargo.DAL.Context;
     using RSS_cargo.DAL.Repositories;
 
     /// <summary>
@@ -25,6 +14,9 @@ namespace RSS_Cargo.Presentation
     /// </summary>
     public partial class LoginPage : Window
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LoginPage"/> class.
+        /// </summary>
         public LoginPage()
         {
             this.InitializeComponent();
@@ -74,14 +66,14 @@ namespace RSS_Cargo.Presentation
 
             Program.Log.Info($"Login as user {login} successful");
 
-            MainWindow window_main = new MainWindow();
+            MainWindow window_main = new();
             window_main.Show();
             this.Close();
         }
 
         private void BtnCreateAccount_Click(object sender, RoutedEventArgs e)
         {
-            RegistrationPage window_registration = new RegistrationPage();
+            RegistrationPage window_registration = new();
             window_registration.Show();
             this.Close();
         }

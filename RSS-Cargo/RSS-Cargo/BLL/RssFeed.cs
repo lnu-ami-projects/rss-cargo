@@ -4,14 +4,19 @@
 
 namespace RSS_Cargo.BLL
 {
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
     using System.ServiceModel.Syndication;
     using System.Xml;
 
+    /// <summary>
+    /// Repersents single feed.
+    /// </summary>
     public class RssFeed
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RssFeed"/> class.
+        /// </summary>
+        /// <param name="url">Feed url.</param>
         public RssFeed(string url)
         {
             Program.Log.Info($"Reading RSS Feed: {url}");
@@ -29,14 +34,29 @@ namespace RSS_Cargo.BLL
             Program.Log.Info($"For RSS Feed: {url}, found {this.Items.Length} items");
         }
 
+        /// <summary>
+        /// Gets RSS post title.
+        /// </summary>
         public string Title { get; }
 
+        /// <summary>
+        /// Gets RSS post description.
+        /// </summary>
         public string Description { get; }
 
+        /// <summary>
+        /// Gets RSS post update time.
+        /// </summary>
         public string LastUpdatedTime { get; }
 
+        /// <summary>
+        /// Gets RSS post authors.
+        /// </summary>
         public string[] Authors { get; }
 
+        /// <summary>
+        /// Gets RSS post items.
+        /// </summary>
         public RssFeedItem[] Items { get; }
     }
 }

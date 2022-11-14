@@ -12,22 +12,40 @@ namespace RSS_Cargo
     using RSS_cargo.DAL.Context;
     using RSS_cargo.DAL.Models;
 
+    /// <summary>
+    /// Entry point.
+    /// </summary>
     public static class Program
     {
         private static User? loggedUser;
 
         private static List<RssFeed>? userFeeds;
 
+        /// <summary>
+        /// Gets or sets databse.
+        /// </summary>
         public static RsscargoContext? DB { get; set; }
 
+        /// <summary>
+        /// Gets or sets user.
+        /// </summary>
         public static User? LoggedUser { get => loggedUser; set => loggedUser = value; }
 
+        /// <summary>
+        /// Gets or sets feed.
+        /// </summary>
         public static List<RssFeed>? UserFeeds { get => userFeeds; set => userFeeds = value; }
 
+        /// <summary>
+        /// Gets logger.
+        /// </summary>
         public static ILog Log { get; } = LogManager.GetLogger(type: MethodBase.GetCurrentMethod()!.DeclaringType);
 
+        /// <summary>
+        /// Entrypoint.
+        /// </summary>
         [STAThread]
-        public static void Main(string[] args)
+        public static void Main()
         {
             Console.WriteLine("==== Starting ====");
 

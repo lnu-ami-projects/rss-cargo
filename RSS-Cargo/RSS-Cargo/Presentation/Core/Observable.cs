@@ -4,18 +4,23 @@
 
 namespace RSS_Cargo.Presentation.Core
 {
-    using System;
-    using System.Collections.Generic;
     using System.ComponentModel;
-    using System.Linq;
     using System.Runtime.CompilerServices;
-    using System.Text;
-    using System.Threading.Tasks;
 
+    /// <summary>
+    /// Observer.
+    /// </summary>
     public class Observable : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Gets or sets changes.
+        /// </summary>
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        /// <summary>
+        /// Handle changes.
+        /// </summary>
+        /// <param name="name">Name.</param>
         protected void OnPropertyChanged([CallerMemberName] string? name = null)
         {
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));

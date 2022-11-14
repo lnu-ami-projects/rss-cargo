@@ -4,17 +4,18 @@
 
 namespace RSS_Cargo.Presentation.MVVM.ViewModel
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using RSS_Cargo.Presentation.Core;
 
+    /// <summary>
+    /// Main view.
+    /// </summary>
     public class MainViewModel : Core.Observable
     {
         private object? currentView;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainViewModel"/> class.
+        /// </summary>
         public MainViewModel()
         {
             this.HomeVM = new RSSHomeViewModel();
@@ -51,26 +52,59 @@ namespace RSS_Cargo.Presentation.MVVM.ViewModel
             });
         }
 
+        /// <summary>
+        /// Gets or sets home.
+        /// </summary>
         public Core.RelayCommand HomeViewComand { get; set; }
 
+        /// <summary>
+        /// Gets or sets followd.
+        /// </summary>
         public Core.RelayCommand FeedsFollowedComand { get; set; }
 
+        /// <summary>
+        /// Gets or sets cargos followed new.
+        /// </summary>
         public Core.RelayCommand CargosFollowNewCommand { get; set; }
 
+        /// <summary>
+        /// Gets or sets cargos followed.
+        /// </summary>
         public Core.RelayCommand CargosFollowedCommand { get; set; }
 
+        /// <summary>
+        /// Gets or sets new.
+        /// </summary>
         public Core.RelayCommand NewsPageCommand { get; set; }
 
+        /// <summary>
+        /// Gets or sets home.
+        /// </summary>
         public RSSHomeViewModel HomeVM { get; set; }
 
+        /// <summary>
+        /// Gets or sets feeds.
+        /// </summary>
         public RSSFeedsFollowedViewModel FeedsFollowedVM { get; set; }
 
+        /// <summary>
+        /// Gets or sets cargo feeds.
+        /// </summary>
         public RSSCargosFollowNewViewModel CargosFollowNewVM { get; set; }
 
+        /// <summary>
+        /// Gets or sets cargo followed.
+        /// </summary>
         public RSSCargosFollowedViewModel CargosFollowedVM { get; set; }
 
+        /// <summary>
+        /// Gets or sets news.
+        /// </summary>
         public RSSNewsPageViewModel NewsPageVM { get; set; }
 
+        /// <summary>
+        /// Gets or sets vews.
+        /// </summary>
         public object CurrentView
         {
             get

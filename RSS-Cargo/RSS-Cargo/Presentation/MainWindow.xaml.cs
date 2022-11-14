@@ -5,19 +5,11 @@
 namespace RSS_Cargo.Presentation
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Controls;
-    using System.Windows.Data;
-    using System.Windows.Documents;
     using System.Windows.Input;
     using System.Windows.Media;
-    using System.Windows.Media.Imaging;
-    using System.Windows.Navigation;
-    using System.Windows.Shapes;
     using RSS_Cargo.BLL;
     using RSS_cargo.DAL.Repositories;
 
@@ -26,6 +18,9 @@ namespace RSS_Cargo.Presentation
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// </summary>
         public MainWindow()
         {
             this.InitializeComponent();
@@ -34,7 +29,7 @@ namespace RSS_Cargo.Presentation
 
             if (Program.LoggedUser == null)
             {
-                LoginPage loginPage = new LoginPage();
+                LoginPage loginPage = new();
                 loginPage.Show();
                 this.Close();
 
@@ -53,10 +48,12 @@ namespace RSS_Cargo.Presentation
 
             Program.UserFeeds.ForEach(f =>
             {
-                var tb = new TextBlock();
-                tb.Text = f.Title;
-                tb.FontSize = 16;
-                tb.TextTrimming = TextTrimming.CharacterEllipsis;
+                var tb = new TextBlock
+                {
+                    Text = f.Title,
+                    FontSize = 16,
+                    TextTrimming = TextTrimming.CharacterEllipsis,
+                };
 
                 this.followedList.Children.Add(tb);
             });
@@ -128,10 +125,12 @@ namespace RSS_Cargo.Presentation
             this.searchBox.BorderBrush = new SolidColorBrush(Colors.Transparent);
             this.searchBox.Text = string.Empty;
 
-            var tb = new TextBlock();
-            tb.Text = newFeed.Title;
-            tb.FontSize = 16;
-            tb.TextTrimming = TextTrimming.CharacterEllipsis;
+            var tb = new TextBlock
+            {
+                Text = newFeed.Title,
+                FontSize = 16,
+                TextTrimming = TextTrimming.CharacterEllipsis,
+            };
 
             this.followedList.Children.Add(tb);
 

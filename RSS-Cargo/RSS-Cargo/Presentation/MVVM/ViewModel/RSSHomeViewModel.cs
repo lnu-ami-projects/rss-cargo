@@ -4,14 +4,14 @@
 
 namespace RSS_Cargo.Presentation.MVVM.ViewModel
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
+    /// <summary>
+    /// Reperesents home.
+    /// </summary>
     public class RSSHomeViewModel
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RSSHomeViewModel"/> class.
+        /// </summary>
         public RSSHomeViewModel()
         {
         }

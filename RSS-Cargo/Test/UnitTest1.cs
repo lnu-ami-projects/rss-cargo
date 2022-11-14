@@ -3,7 +3,7 @@ namespace Test
 {
     public class UnitTest_RssFeed
     {
-        private RssFeed _rssFeed;
+        private readonly RssFeed _rssFeed;
 
         public UnitTest_RssFeed()
         {
@@ -20,7 +20,7 @@ namespace Test
         public void Test_Description()
         {
             Assert.Equal("CNN.com delivers up-to-the-minute news and information on the latest top stories, weather, entertainment, politics and more.", _rssFeed.Description);
-        }        
+        }
 
         [Fact]
         public void Test_Items()
