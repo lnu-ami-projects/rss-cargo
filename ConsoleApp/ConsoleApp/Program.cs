@@ -1,17 +1,13 @@
-﻿using System;
-
-namespace ConsoleApp
-{
-    class Program
+﻿namespace ConsoleApp;
+class Program
+{ 
+    static void Main()
     {
-        static void Main()
+        var interactor = new InteractionFunctionality();
+        while (true)
         {
-            var interactor = new InteractionFunctionality();
-
-            while (true)
-            {
-                try
-                {   
+            try
+            {   
                     Console.WriteLine("1. Insert data to all tables");
                     Console.WriteLine("2. Print data");
                     Console.WriteLine("3. Delete All Data");
@@ -42,11 +38,10 @@ namespace ConsoleApp
                         case 0:
                             return;
                     }
-                }
-                catch (Exception e)
-                {
+            }
+            catch (Exception e)
+            {
                     Console.WriteLine(e.Message);
-                }
             }
         }
     }

@@ -1,13 +1,12 @@
-using System;
+namespace ConsoleApp;
+
 using Npgsql;
 using ConsoleTables;
 
-namespace ConsoleApp
-{
-    public class InteractionFunctionality: ConnectionFunctionality
+public class InteractionFunctionality: ConnectionFunctionality
     {
         private readonly RandomGenerator _randomGenerator = new();
-        private int TableSize(string tableName)
+        public int TableSize(string tableName)
         {
             ExecuteQuery($"SELECT COUNT(*) FROM {tableName}");
             Reader.Read();
@@ -169,4 +168,3 @@ namespace ConsoleApp
             Command.ExecuteNonQuery();
         }
     }
-}
