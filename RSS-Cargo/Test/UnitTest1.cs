@@ -1,3 +1,4 @@
+using BCrypt.Net;
 using RSS_Cargo.BLL;
 namespace Test
 {
@@ -30,27 +31,24 @@ namespace Test
         [Fact]
         public void Test_ItemTitle()
         {
-            var item = _rssFeed.Items[0];
-            Assert.Equal("Israeli President invites Netanyahu to form government", item.Title);
-        }
-        [Fact]
-        public void Test_ITemLinks()
-        {
-            var item = _rssFeed.Items[0];
-            Assert.Equal("https://www.cnn.com/2022/11/13/middleeast/netanyahu-form-government-israel-intl/index.html", item.Links[0].Item2);
-        }
+            string searchElement = "Analysis: Elon Musk's Twitter faces its 'Titanic' moment as executives and advertisers flee while trolls run rampant";
+            
+            Assert.True(Array.Exists(_rssFeed.Items, element => element.Title == searchElement));
+            
+        }        
+        
         [Fact]
         public void Test_ItemSummary()
         {
-            var item = _rssFeed.Items[0];
-            Assert.Equal("Israel's President Isaac Herzog asked Benjamin Netanyahu to form a new government on Sunday, allowing the former prime minister to secure the country's top job for a record sixth time and extend his record as the nation's longest-serving leader.",
-                item.Summary);
+            string searchElement = "The world is watching the world's richest man single-handedly destroy one of the world's most powerful and important communication platforms, just weeks after acquiring it for $44 billion. And of course, the world is watching the dramatic spectacle unfold on — where else? — Twitter.";
+            Assert.True(Array.Exists(_rssFeed.Items, element => element.Summary == searchElement));            
         }
         [Fact]
         public void Test_ItemPublishDate()
         {
-            var item = _rssFeed.Items[0];
-            Assert.Equal("13.11.2022 13:57:46 +00:00", item.PublishDate);
+            string searchElement = "10.11.2022 21:01:48 +00:00";
+            Assert.True(Array.Exists(_rssFeed.Items, element => element.PublishDate == searchElement));
+            
         }
 
 
