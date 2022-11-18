@@ -167,12 +167,12 @@
                             </StackPanel>
                         </RadioButton>
 
-                        <RadioButton x:Name="CargosFollowedRadioBtn" FontSize="20" FontFamily="Lucida Sans" Foreground="Black" BorderBrush="Transparent" BorderThickness="0" GroupName="MenuButtons" Style="{StaticResource MenuButtonTheme}" Command="{Binding CargosFollowedCommand}">
+                        <!--<RadioButton x:Name="CargosFollowedRadioBtn" FontSize="20" FontFamily="Lucida Sans" Foreground="Black" BorderBrush="Transparent" BorderThickness="0" GroupName="MenuButtons" Style="{StaticResource MenuButtonTheme}" Command="{Binding CargosFollowedCommand}">
                             <StackPanel x:Name="CargosFollowedBtn" Height="34" Width="220" Margin="0,5,0,0" Orientation="Horizontal" MouseLeftButtonDown="CargosFollowedBtn_MouseLeftButtonDown">
                                 <Image Height="34" Width="28" Source="/Presentation/Images/32/streamlinehq-interface-arrows-button-right-interface-essential-32.png" HorizontalAlignment="Left" Margin="24,0,0,0"/>
                                 <TextBlock Height="34" Width="148" Text="Followed" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="20" FontFamily="Lucida Sans" Foreground="Black" Padding="0,5,0,0"/>
                             </StackPanel>
-                        </RadioButton>
+                        </RadioButton>-->
 
                         <StackPanel x:Name="cargosList" Orientation="Vertical" Margin="30,0,0,0">
                         </StackPanel>
