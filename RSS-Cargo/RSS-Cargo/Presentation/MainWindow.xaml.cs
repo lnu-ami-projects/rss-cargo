@@ -12,6 +12,7 @@ namespace RSS_Cargo.Presentation
     using System.Windows.Media;
     using RSS_Cargo.BLL;
     using RSS_cargo.DAL.Repositories;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml.
@@ -40,11 +41,7 @@ namespace RSS_Cargo.Presentation
 
             var userFeeds = Program.DB!.UserFeeds.Where(f => f.UserId == Program.LoggedUser.Id);
 
-            Program.Log.Info("Loading user feeds");
-
             Program.UserFeeds = userFeeds.Select(f => new RssFeed(f.RssFeed)).ToList();
-
-            Console.WriteLine($"User feed found: {Program.UserFeeds.Count}");
 
             Program.UserFeeds.ForEach(f =>
             {
@@ -59,6 +56,43 @@ namespace RSS_Cargo.Presentation
             });
 
             Program.Log.Info("User feeds loaded");
+
+            var cargos = Program.DB.Cargos.ToList();
+            Program.Cargos = cargos;
+
+            Program.CargoFeeds = new Dictionary<int, List<RssFeed>>();
+            foreach (var cargo in cargos)
+            {
+                var feeds = new List<RssFeed>();
+                var cargoFeeds = Program.DB!.CargoFeeds.Where(c => c.CargoId == cargo.Id).ToArray();
+                foreach (var feed in cargoFeeds)
+                {
+                    feeds.Add(new RssFeed(feed.RssFeed));
+                }
+
+                Program.CargoFeeds[cargo.Id] = feeds;
+            }
+
+            Program.UserCargos = new List<RSS_cargo.DAL.Models.Cargo>();
+
+            var userCargos = Program.DB!.UserCargos.Where(c => c.UserId == Program.LoggedUser.Id).ToArray();
+            Console.WriteLine($"userCargos {userCargos.Length}");
+            foreach (var cargo in userCargos)
+            {
+                var c = cargos.First(c => c.Id == cargo.CargoId);
+                Program.UserCargos.Add(c);
+
+                var tb = new TextBlock
+                {
+                    Text = c.Name,
+                    FontSize = 16,
+                    TextTrimming = TextTrimming.CharacterEllipsis,
+                };
+
+                this.cargosList.Children.Add(tb);
+            }
+
+            Program.MainW = this;
         }
 
         private void FeedsAllBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

@@ -139,7 +139,6 @@
                             </StackPanel>
                         </RadioButton>
 
-
                         <RadioButton x:Name="FeedsFollowedRadioBtn" FontSize="20" FontFamily="Lucida Sans" Foreground="Black" BorderBrush="Transparent" BorderThickness="0" GroupName="MenuButtons" Style="{StaticResource MenuButtonTheme}" Command="{Binding FeedsFollowedComand}">
                             <StackPanel x:Name="FeedsFollowedBtn" Height="34" Width="220" Margin="0,5,0,0" Orientation="Horizontal" PreviewMouseLeftButtonDown="FeedsFollowedBtn_PreviewMouseLeftButtonDown" VerticalAlignment="Stretch">
                                 <Image Height="34" Width="28" Source="/Presentation/Images/32/streamlinehq-interface-arrows-button-right-interface-essential-32.png" HorizontalAlignment="Left" Margin="24,0,0,0"/>
@@ -158,7 +157,7 @@
                         <DropShadowEffect Opacity="0.2" Direction="315" RenderingBias="Performance"/>
                     </Border.Effect>
 
-                    <StackPanel HorizontalAlignment="Center" Height="130" Margin="0,24,0,0" VerticalAlignment="Top" Width="220" RenderTransformOrigin="0.611,0.5">
+                    <StackPanel HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" Width="220" RenderTransformOrigin="0.611,0.5">
                         <TextBlock Height="34" TextWrapping="Wrap" Text="Cargos" Width="220" Margin="0,0,0,0" Padding="24,0,0,0" FontFamily="Lucida Sans" FontSize="20" Foreground="#FF686868" VerticalAlignment="Stretch" IsEnabled="False"/>
 
                         <RadioButton x:Name="CargosFollowNewRadioBtn" FontSize="20" FontFamily="Lucida Sans" Foreground="Black" BorderBrush="Transparent" BorderThickness="0" GroupName="MenuButtons" Style="{StaticResource MenuButtonTheme}" Command="{Binding CargosFollowNewCommand}">
@@ -167,7 +166,6 @@
                                 <TextBlock Height="34" Width="148" Text="Follow New" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="20" FontFamily="Lucida Sans" Foreground="Black" Padding="0,5,0,0"/>
                             </StackPanel>
                         </RadioButton>
-
 
                         <RadioButton x:Name="CargosFollowedRadioBtn" FontSize="20" FontFamily="Lucida Sans" Foreground="Black" BorderBrush="Transparent" BorderThickness="0" GroupName="MenuButtons" Style="{StaticResource MenuButtonTheme}" Command="{Binding CargosFollowedCommand}">
                             <StackPanel x:Name="CargosFollowedBtn" Height="34" Width="220" Margin="0,5,0,0" Orientation="Horizontal" MouseLeftButtonDown="CargosFollowedBtn_MouseLeftButtonDown">

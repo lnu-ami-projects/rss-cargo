@@ -11,6 +11,7 @@ namespace RSS_Cargo
     using RSS_Cargo.BLL;
     using RSS_cargo.DAL.Context;
     using RSS_cargo.DAL.Models;
+    using RSS_Cargo.Presentation;
 
     /// <summary>
     /// Entry point.
@@ -35,6 +36,14 @@ namespace RSS_Cargo
         /// Gets or sets feed.
         /// </summary>
         public static List<RssFeed>? UserFeeds { get => userFeeds; set => userFeeds = value; }
+
+        public static List<Cargo>? Cargos { get; set; }
+
+        public static Dictionary<int, List<RssFeed>>? CargoFeeds { get; set; }
+
+        public static List<Cargo>? UserCargos { get; set; }
+
+        public static MainWindow MainW { get; set; }
 
         /// <summary>
         /// Gets logger.
