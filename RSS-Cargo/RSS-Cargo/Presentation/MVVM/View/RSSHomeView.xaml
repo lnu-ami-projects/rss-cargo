@@ -12,8 +12,9 @@
         <viewModel:MainViewModel/>
     </UserControl.DataContext>
 
-    <StackPanel Background="Transparent">
-        <Border>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel x:Name="allFeedsList" Background="Transparent">
+            <!--<Border>
             <Border.Effect>
                 <DropShadowEffect Opacity="0.35"/>
             </Border.Effect>
@@ -78,9 +79,10 @@
             </Button>
 
 
-        </Border>
+        </Border>-->
 
-        <!--<ContentControl Content="{Binding}"/>-->
+            <!--<ContentControl Content="{Binding}"/>-->
 
-    </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>
